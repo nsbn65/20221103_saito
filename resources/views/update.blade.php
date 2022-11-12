@@ -1,8 +1,8 @@
-@extends('layouts.layouts')
+@extends('layouts.post')
 <style>
   
 </style>
-@section('title', 'edit.blade.php')
+@section('title', 'update.blade.php')
 
 @section('content')
 @if (count($errors) > 0)

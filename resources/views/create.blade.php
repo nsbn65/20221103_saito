@@ -1,8 +1,8 @@
-@extends('layouts.layouts')
+@extends('layouts.post')
 <style>
   
 </style>
-@section('title', 'add.blade.php')
+@section('title', 'create.blade.php')
 
 @section('content')
 @if (count($errors) > 0)
@@ -12,7 +12,7 @@
   @endforeach
 </ul>
 @endif
-<form action="/add" method="post">
+<form action="/create" method="post">
   <table>
   @csrf
     <tr>

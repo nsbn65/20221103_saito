@@ -14,58 +14,30 @@ class PostController extends Controller
         return view('index', ['posts' => $posts]);
     }
 
-    public function find()
-    {
-        return view('find', ['input' => '']);
-    }
-
-    public function search(Request $request)
-    {
-        $post = Post::find($request->input);
-        $param = [
-            'post' => $post,
-            'input' => $request->input
-        ];
-        return view('find', $param);
-    }
-
-    public function add()
-    {
-    return view('add');
-    }
-
     public function create(PostRequest $request)
     {
-        $this->validate($request, Post::$rules);
+        $post = new Todo();
         $form = $request->all();
         Post::create($form);
         unset($form['_token']);
         return redirect('/');
     }
 
-    public function edit(Request $request)
-    {
-        $post = Post::find($request->id);
-        return view('edit', ['form' => $post]);
-    }
-
     public function update(PostRequest $request)
     {
+        $todo = Post::find($id);
+        return view('update',["todo" => $todo]);
         $form = $request->all();
         unset($form['_token']);
-        Post::where('id', $request->id)->update($form);
+        Post::update('id', $request->id)->update($form);
         return redirect('/');
     }
 
     public function delete(Request $request)
     {
-        $post = Post::find($request->id);
+        $post = Post::find($request->$id);
         return view('delete', ['form' => $post]);
-    }
-
-    public function remove(Request $request)
-    {
-        Post::find($request->id)->delete();
         return redirect('/');
     }
+
 }
