@@ -16,10 +16,8 @@ class PostController extends Controller
 
     public function create(PostRequest $request)
     {
-        $post = new Todo();
         $form = $request->all();
         Post::create($form);
-        unset($form['_token']);
         return redirect('/');
     }
 
@@ -28,7 +26,6 @@ class PostController extends Controller
         $todo = Post::find($id);
         return view('update',["todo" => $todo]);
         $form = $request->all();
-        unset($form['_token']);
         Post::update('id', $request->id)->update($form);
         return redirect('/');
     }

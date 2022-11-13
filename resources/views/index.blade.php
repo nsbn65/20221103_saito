@@ -12,9 +12,8 @@
       <h1>Todo List</h1>
       <div class = "form-add">
         <form action = "/create" method="post" class="content-add">
-          @csrf
-          <input type = "hidden" name="_token">          
-          <input type = "text" class="input-add" name="content">
+          @csrf         
+          <input type = "text" class="input-add" name="name">
           <input class = "button-add" type="submit" value="追加">
         </form>
       </div>
@@ -40,14 +39,23 @@
       </tr>
     </table>
   </div>
-</div>       
-    
-    @foreach ($posts as $posts)
+</div>
+
+
+{{-- 作成途中 --}}
+<table>
+  <tr>
+    <th>作成日</th>
+    <th>タスク名</th>
+    <th></th>
+    <th></th>
+  </tr>
+    @foreach ($posts as $post)
     <tr>
-      <td>{{$post->id}}</td>
+      <td>{{$post->created_at}}</td>
       <td>{{$post->name}}</td>
-      <td>{{$post->age}}</td>
-      <td>{{$post->nationality}}</td>
+      <td></td>
+      <td></td>
     </tr>
     @endforeach
   </table>

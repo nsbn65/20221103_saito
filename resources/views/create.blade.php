@@ -17,11 +17,11 @@
   @csrf
     <tr>
       <th>作成日</th>
-      <td><input type="text" name="name"></td>
+      <td><input type="text" name="created_at"></td>
     </tr>
     <tr>
       <th>タスク名</th>
-      <td><input type="text" name="age"></td>
+      <td><input type="text" name="name"></td>
     </tr>
     <tr>
       <th>更新</th>
