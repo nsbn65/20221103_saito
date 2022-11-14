@@ -12,25 +12,38 @@
   @endforeach
 </ul>
 @endif
-<form action="/create" method="post">
-  <table>
-  @csrf
-    <tr>
-      <th>作成日</th>
-      <td><input type="text" name="created_at"></td>
-    </tr>
-    <tr>
-      <th>タスク名</th>
-      <td><input type="text" name="name"></td>
-    </tr>
-    <tr>
-      <th>更新</th>
-      <td><button>更新</button></td>
-    </tr>
-    <tr>
-      <th>削除</th>
-      <td><button>削除</button></td>
-    </tr>
-  </table>
-</form>
+<div class = "container">
+  <div class = "card">
+    <div class = "top">
+      <h1>Todo List</h1>
+      <div class = "form-add">
+        <form action = "/create" method="POST">
+          @csrf         
+          <input type = "text" class="input-add" name="name" value ="{{$form->name}}">
+          <button class = "button-add" type="submit" value="追加">追加</button>
+        </form>
+      </div>
+    </div>
+    <table>
+      <tr>
+        <th>作成日</th>
+        <th>タスク名</th>
+        <th>更新</th>
+        <th>削除</th>            
+      </tr>
+      <tr>
+        <td>{{$form->created_at}}</td>
+        <td>
+          <input type = "text" class="input-update" value="{{$form->name}}" name="name">
+        </td>
+        <td>
+          <input class = "button-update" type="submit" value="更新">
+        </td>
+        <td>
+          <input class = "button-delete" type="submit" value="削除">
+        </td> 
+      </tr>
+    </table>
+  </div>
+</div>
 @endsection

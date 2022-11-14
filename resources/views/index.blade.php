@@ -11,10 +11,10 @@
     <div class = "top">
       <h1>Todo List</h1>
       <div class = "form-add">
-        <form action = "/create" method="post" class="content-add">
+        <form action = "/" method="GET" class="content-add">
           @csrf         
           <input type = "text" class="input-add" name="name">
-          <input class = "button-add" type="submit" value="追加">
+          <button class = "button-add" type="submit" value="追加">追加</button>
         </form>
       </div>
     </div>
@@ -30,10 +30,10 @@
         <td>{{$post->created_at}}</td>
         <td>{{$post->name}}</td>
         <td>
-          <input class = "button-update" type="submit" value="更新">
+          <button class = "button-update">更新</button>
         </td>
         <td>
-          <input class = "button-delete" type="submit" value="削除">
+          <button class = "button-delete">削除</button>
         </td> 
       </tr>
       @endforeach

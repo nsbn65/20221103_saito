@@ -17,10 +17,10 @@
     <div class = "top">
       <h1>Todo List</h1>
       <div class = "form-add">
-        <form action = "/update" method="post">
+        <form action = "/update" method="POST">
           @csrf         
           <input type = "text" class="input-add" name="name" value ="{{$form->name}}">
-          <input class = "button-add" type="submit" value="追加">
+          <button class = "button-add" type="submit" value="追加">追加</button>
         </form>
       </div>
     </div>
@@ -32,7 +32,7 @@
         <th>削除</th>            
       </tr>
       <tr>
-        <td></td>
+        <td>{{$form->created_at}}</td>
         <td>
           <input type = "text" class="input-update" value="{{$form->name}}" name="name">
         </td>
