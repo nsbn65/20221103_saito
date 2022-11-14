@@ -10,7 +10,7 @@
     <div class = "top">
       <h1>Todo List</h1>
       <div class = "form-add">
-        <form action = "/delete" method="DELETE">
+        <form action = "/delete" method="POST">
           @csrf         
           <input type = "text" class="input-add" name="name" value ="{{$form->name}}">
           <button class = "button-add" type="submit" value="追加">追加</button>
