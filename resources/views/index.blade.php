@@ -11,7 +11,7 @@
     <div class = "top">
       <h1>Todo List</h1>
       <div class = "form-add">
-        <form action = "/" method="post" class="content-add">
+        <form action = "/create" method="post" class="content-add">
           @csrf         
           <input type = "text" class="input-add" name="name">
           <button class = "button-add" type="submit" value="追加">追加</button>
