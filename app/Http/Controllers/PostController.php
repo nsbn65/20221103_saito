@@ -27,6 +27,7 @@ class PostController extends Controller
         return view('update',["todo" => $todo]);
         $form = $request->all();
         Post::update('id', $request->id)->update($form);
+        unset($form['_token']);
         return redirect('/');
     }
 
