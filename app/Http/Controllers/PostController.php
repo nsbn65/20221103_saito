@@ -24,8 +24,9 @@ class PostController extends Controller
     public function update($id, PostRequest $request)
     {
         $todo = Post::find($id);
-        return view('update',["todo" => $todo]);
         $form = $request->all();
+        Post::where('id', $id)->update($todo);
+        return view('update',["todo" => $todo]);
         Post::update('id', $request->id)->update($form);
         unset($form['_token']);
         return redirect('/update');

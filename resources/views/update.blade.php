@@ -34,7 +34,7 @@
     </tr>
     <tr>
       <td>{{$form->created_at}}</td>
-      <form action = "/update}" method="POST">
+      <form action = "/update/{id}" method="POST">
         @csrf
         <td>
           <input type = "text" class="input-update" value="{{$form->id}}" name="name">
