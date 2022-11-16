@@ -23,12 +23,10 @@ class PostController extends Controller
 
     public function update($id, PostRequest $request)
     {
-        $todo = Post::find($id);
+        $todo = Post::find($request->id);
         $form = $request->all();
         Post::where('id', $id)->update($todo);
         return view('update',["todo" => $todo]);
-        Post::update('id', $request->id)->update($form);
-        unset($form['_token']);
         return redirect('/update');
     }
 
