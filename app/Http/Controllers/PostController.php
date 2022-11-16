@@ -21,14 +21,14 @@ class PostController extends Controller
         return redirect('/');
     }
 
-    public function update(PostRequest $request)
+    public function update($id, PostRequest $request)
     {
         $todo = Post::find($id);
         return view('update',["todo" => $todo]);
         $form = $request->all();
         Post::update('id', $request->id)->update($form);
         unset($form['_token']);
-        return redirect('/');
+        return redirect('/update');
     }
 
     public function delete(Request $request)
