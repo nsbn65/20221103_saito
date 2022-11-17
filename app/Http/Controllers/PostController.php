@@ -26,14 +26,14 @@ class PostController extends Controller
         $todo = Post::find($request->id);
         $form = $request->all();
         Post::where('id', $id)->update($todo);
-        return view('update',["todo" => $todo]);
+        return view('index');
     }
 
-    public function delete(Request $request)
+    public function delete($id, PostRequest $request)
     {
         $post = Post::find($request->$id);
+        return redirect('/delete');
         return view('delete', ['form' => $post]);
-        return redirect('/');
     }
 
 }
