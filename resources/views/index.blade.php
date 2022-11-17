@@ -28,10 +28,10 @@
       @foreach ($posts as $post)
       <tr>
         <td>{{$post->created_at}}</td>
-        <form action = "/update/{id}" method="POST">
+        <form action = "{{ route('post.update', ['id' => $post->id])}}" method="POST">
           @csrf
           <td>
-            <input type = "text" class="input-update" value="{{$post->id}}" name="name">
+            <input type = "text" class="input-update" value="{{$post->name}}" name="name">
           </td>
           <td>
             <button class = "button-update" type="submit" value="更新">更新</button>
@@ -39,6 +39,7 @@
         </form>
         <form action = "/delete/{id}" method = "POST">
           @csrf
+          @method('DELETE')
           <td>
             <button class = "button-delete" type="submit" value="削除">削除</button>
           </td>
