@@ -27,7 +27,6 @@ class PostController extends Controller
         $form = $request->all();
         Post::where('id', $id)->update($todo);
         return view('update',["todo" => $todo]);
-        return redirect('/update');
     }
 
     public function delete(Request $request)

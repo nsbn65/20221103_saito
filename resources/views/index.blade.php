@@ -18,30 +18,34 @@
         </form>
       </div>
     </div>
-    <form action = "/update" method="POST">
-      @csrf
-      <table>
-        <tr>
-          <th>作成日</th>
-          <th>タスク名</th>
-          <th>更新</th>
-          <th>削除</th>            
-        </tr>
-        @foreach ($posts as $post)
-        <tr>
-          <td>{{$post->created_at}}</td>
-
-          <td><input type = "text" class="input-update" value="{{$post->name}}"></td>
+    <table>
+      <tr>
+        <th>作成日</th>
+        <th>タスク名</th>
+        <th>更新</th>
+        <th>削除</th>            
+      </tr>
+      @foreach ($posts as $post)
+      <tr>
+        <td>{{$post->created_at}}</td>
+        <form action = "/update/{id}" method="POST">
+          @csrf
+          <td>
+            <input type = "text" class="input-update" value="{{$post->id}}" name="name">
+          </td>
           <td>
             <button class = "button-update" type="submit" value="更新">更新</button>
           </td>
+        </form>
+        <form action = "/delete/{id}" method = "POST">
+          @csrf
           <td>
             <button class = "button-delete" type="submit" value="削除">削除</button>
-          </td> 
-        </tr>
-        @endforeach
-      </table>
-    </form>
+          </td>
+        </form>
+      </tr>
+      @endforeach
+    </table>
   </div>
 </div>
 @endsection
