@@ -15,7 +15,6 @@
     .container {
       background-color:#fff;
       width:55%;
-      height: 35%;
       position: absolute;
       top:50%;
       left:50%;
@@ -55,6 +54,12 @@
       outline: none;
     }
 
+    .button-add:hover{
+      background-color: #FA6FEC;
+      border-color: #FA6FEC;
+      color: #fff;
+    }
+
     table {
       width: 100%;
       text-align: center;
@@ -86,6 +91,12 @@
       outline: none;
     }
 
+    .button-update:hover {
+      background-color: #faa628;
+      border-color: #faa628;
+      color: #fff;
+    }
+
     .button-delete {
       font-size:11px;
       color: #21e0ed;
@@ -98,6 +109,11 @@
       outline: none;
     }
 
+    .button-delete:hover {
+      background-color: #21e0ed;
+      border-color: #21e0ed;
+      color: #fff;
+    }
   </style>
 </head>
 <body>

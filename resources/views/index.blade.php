@@ -37,9 +37,8 @@
             <button class = "button-update" type="submit" value="更新">更新</button>
           </td>
         </form>
-        <form action = "/delete/{id}" method = "POST">
+        <form action = "{{ route('post.delete', ['id' => $post->id])}}" method="POST">
           @csrf
-          @method('DELETE')
           <td>
             <button class = "button-delete" type="submit" value="削除">削除</button>
           </td>

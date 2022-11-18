@@ -25,12 +25,12 @@ class PostController extends Controller
     {
         $form = $request->all();
         post::find($request->id)->update($form);
-        return view('index');
+        return redirect('/');
     }
 
     public function delete($id, PostRequest $request)
     {
-        Post::where('id', $id)->delete();
+        post::find($request->id)->delete($form);
         return redirect('/');
     }
 
