@@ -28,9 +28,10 @@ class PostController extends Controller
         return redirect('/');
     }
 
-    public function delete($id, PostRequest $request)
+    public function delete($id)
     {
-        post::find($request->id)->delete($form);
+        $form = Post::find($id);
+        $form->delete();
         return redirect('/');
     }
 

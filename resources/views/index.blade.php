@@ -10,6 +10,9 @@
   <div class = "card">
     <div class = "top">
       <h1>Todo List</h1>
+      @if ($errors->has('name'))
+      <li>{{$errors->first('name')}}</li>
+      @endif
       <div class = "form-add">
         <form action = "/create" method="post" class="content-add">
           @csrf         
